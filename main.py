@@ -2,6 +2,8 @@ import random
 
 def main():
 
+    roll_counter = 0
+
     not_number = True #Created a loop to check for How many dice the player wants to roll.
 
     while not_number == True:
@@ -22,6 +24,7 @@ def main():
         print("Roll the dice? (y/n):") # First the choice needs to be made
         choice = input()
         if choice.lower() == "y": # if the choice of y is taken regardless of upper or lower case.
+            roll_counter += 1
             num_of_dice_to_roll= []
             for die in range(num_of_dice):
                 num_of_dice_to_roll.append(random.randint(1,6))
@@ -30,6 +33,7 @@ def main():
         elif choice.lower() == "n": #If no is chosen regardless of upper or lower case the game is over so print an message and exit
             looping = False #Exit the while loop
             print("Thanks for playing!")
+            print(f"You rolled {roll_counter} times!")
             exit
         else: #If the choice is not yes or no then it is an invalid choice.
             print("Invalid Choice!")
